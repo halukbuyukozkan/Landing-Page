@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\RoleController;
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('user', UserController::class);
         Route::resource('role', RoleController::class);
         Route::resource('permission', PermissionController::class);
+        Route::resource('slider',SliderController::class);
     });
 
     Route::prefix('account')->name('account.')->group(function () {

@@ -18,4 +18,7 @@
             </x-side-link>
         @endif
     </x-side-accordion>
+    <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
+        {{ __('Sliders') }}
+    </x-side-link>
 @endif

@@ -35,6 +35,14 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'management.user',
                 'updated_at' => '2021-12-13 18:38:09',
             ),
+            2 => 
+            array (
+                'created_at' => '2022-09-01 12:30:17',
+                'guard_name' => 'web',
+                'id' => 3,
+                'name' => 'management.slider',
+                'updated_at' => '2022-09-01 12:30:17',
+            ),
         ));
         
         
