@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th>{{ __('İmage') }}</th>
-                        <th>{{ __('Description') }}</th>
+                        <th>{{ __('Name') }}</th>
                         <th class="text-right">{{ __('Actions') }}</th>
                     </tr>
                 </thead>

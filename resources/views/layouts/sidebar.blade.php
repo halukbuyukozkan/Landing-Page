@@ -3,7 +3,7 @@
 </x-side-link>
 
 @if (auth()->user()->hasAnyPermission(['management.user', 'management.role']))
-    <x-side-accordion :title="__('System')" icon="fas fa-cogs" :active="request()->routeIs('admin.*')">
+    <x-side-accordion :title="__('System')" icon="fas fa-cogs" :active="request()->routeIs(['admin.user.*','admin.role.*','admin.permission.*'])">
         @if (auth()->user()->hasPermissionTo('management.user'))
             <x-side-link href="{{ route('admin.user.index') }}" icon="fas fa-users" :active="request()->routeIs('admin.user.*')">
                 {{ __('Users') }}
@@ -18,7 +18,7 @@
             </x-side-link>
         @endif
     </x-side-accordion>
-    <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
-        {{ __('Sliders') }}
-    </x-side-link>
+            <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
+            {{ __('Sliders') }}
+        </x-side-link>
 @endif
