@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\PermissionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.home');
 });
 
 Route::middleware(['auth'])->group(function () {
