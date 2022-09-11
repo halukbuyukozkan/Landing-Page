@@ -23,6 +23,17 @@
 	============================================= -->
 	<title>Home - Corporate Layout 2 | Canvas</title>
 
+	<style>
+		#header.sticky-on-scrollup #header-wrap {
+			-webkit-transition: height .4s ease, opacity .3s ease, margin-top .4s ease;
+			-o-transition: height .4s ease, opacity .3s ease, margin-top .4s ease;
+			transition: height .4s ease, opacity .3s ease, margin-top .4s ease;
+		}
+		
+		#header.sticky-on-scrollup.sticky-header #header-wrap { margin-top: -60px; }
+		
+		#header.sticky-on-scrollup.show-sticky-onscroll.sticky-header #header-wrap { margin-top: 0px; }
+	</style>
 </head>
 
 <body class="stretched">
@@ -33,7 +44,7 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="full-header" data-sticky-logo-height="74" data-menu-padding="32">
+		<header id="header" class="full-header sticky-on-scrollup">
 			<div id="header-wrap">
 				<div class="container">
 					<div class="header-row">
@@ -102,11 +113,11 @@
 
 						<!-- Primary Navigation
 						============================================= -->
-						<nav class="primary-menu sub-title">
+						<nav class="primary-menu">
 
 							<ul class="menu-container">
 								<li class="menu-item">
-									<a class="menu-link" href="index.html"><div>Home</div><span>Lets Start</span></a>
+									<a class="menu-link" href="index.html"><div>Home</div></a>
 									<ul class="sub-menu-container">
 										<li class="menu-item">
 											<a class="menu-link" href="intro.html#section-niche"><div>Niche Demos</div></a>
@@ -267,7 +278,7 @@
 									</ul>
 								</li>
 								<li class="menu-item">
-									<a class="menu-link" href="#"><div>Features</div><span>Out of the Box</span></a>
+									<a class="menu-link" href="#"><div>Features</div></a>
 									<ul class="sub-menu-container">
 										<li class="menu-item">
 											<a class="menu-link" href="#"><div><i class="icon-stack"></i>Sliders</div></a>
@@ -677,7 +688,7 @@
 									</ul>
 								</li>
 								<li class="menu-item mega-menu">
-									<a class="menu-link" href="#"><div>Pages</div><span>Templates</span></a>
+									<a class="menu-link" href="#"><div>Pages</div></a>
 									<div class="mega-menu-content mega-menu-style-2">
 										<div class="container">
 											<div class="row">
@@ -966,7 +977,7 @@
 									</div>
 								</li>
 								<li class="menu-item mega-menu">
-									<a class="menu-link" href="#"><div>Portfolio</div><span>Awesome Works</span></a>
+									<a class="menu-link" href="#"><div>Portfolio</div></a>
 									<div class="mega-menu-content mega-menu-style-2">
 										<div class="container">
 											<div class="row">
@@ -1100,7 +1111,7 @@
 									</div>
 								</li>
 								<li class="menu-item mega-menu">
-									<a class="menu-link" href="#"><div>Blog</div><span>Latest News</span></a>
+									<a class="menu-link" href="#"><div>Blog</div></a>
 									<div class="mega-menu-content mega-menu-style-2">
 										<div class="container">
 											<div class="row">
@@ -1234,6 +1245,266 @@
 																<a class="menu-link" href="blog-single-small.html#comments"><div>Disqus Comments</div></a>
 															</li>
 														</ul>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="shop.html"><div>Shop</div></a>
+									<ul class="sub-menu-container">
+										<li class="menu-item">
+											<a class="menu-link" href="shop.html"><div>4 Columns</div></a>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-3.html"><div>3 Columns</div></a>
+											<ul class="sub-menu-container">
+												<li class="menu-item">
+													<a class="menu-link" href="shop-3.html"><div>Full Width</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-3-right-sidebar.html"><div>Right Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-3-left-sidebar.html"><div>Left Sidebar</div></a>
+												</li>
+											</ul>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-2.html"><div>2 Columns</div></a>
+											<ul class="sub-menu-container">
+												<li class="menu-item">
+													<a class="menu-link" href="shop-2-right-sidebar.html"><div>Right Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-2-left-sidebar.html"><div>Left Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-2-both-sidebar.html"><div>Both Sidebar</div></a>
+												</li>
+											</ul>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-1.html"><div>1 Columns</div></a>
+											<ul class="sub-menu-container">
+												<li class="menu-item">
+													<a class="menu-link" href="shop-1.html"><div>Full Width</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-1-right-sidebar.html"><div>Right Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-1-left-sidebar.html"><div>Left Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-1-both-sidebar.html"><div>Both Sidebar</div></a>
+												</li>
+											</ul>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-category-parallax.html"><div>Categories - Parallax</div></a>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-combination-filter.html"><div>Combination Filter</div></a>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="shop-single.html"><div>Single Product</div></a>
+											<ul class="sub-menu-container">
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single.html"><div>Full Width</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-right-sidebar.html"><div>Right Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-left-sidebar.html"><div>Left Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-both-sidebar.html"><div>Both Sidebar</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-color.html"><div>Color Options</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-sticky.html"><div>Sticky Aside</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="shop-single-list.html"><div>Feature List</div></a>
+												</li>
+											</ul>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="cart.html"><div>Cart</div></a>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="checkout.html"><div>Checkout</div></a>
+										</li>
+									</ul>
+								</li>
+								<li class="menu-item mega-menu">
+									<a class="menu-link" href="#"><div>Shortcodes</div></a>
+									<div class="mega-menu-content">
+										<div class="container">
+											<div class="row">
+												<ul class="sub-menu-container mega-menu-column col">
+													<li class="menu-item">
+														<a class="menu-link" href="animations.html"><div><i class="icon-magic"></i>Animations</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="buttons.html"><div><i class="icon-link"></i>Buttons</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="carousel.html"><div><i class="icon-heart3"></i>Carousel</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="charts.html"><div><i class="icon-bar-chart"></i>Charts</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="clients.html"><div><i class="icon-apple"></i>Clients</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="columns-grids.html"><div><i class="icon-th-large"></i>Columns</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="counters.html"><div><i class="icon-time"></i>Counters</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="read-more.html"><div><i class="icon-ellipsis-h"></i>Read More</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-datatable.html"><div><i class="icon-table"></i>Data Tables</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-datepicker.html"><div><i class="icon-calendar3"></i>Date &amp; Time Pickers</div></a>
+													</li>
+												</ul>
+												<ul class="sub-menu-container mega-menu-column col">
+													<li class="menu-item">
+														<a class="menu-link" href="dividers.html"><div><i class="icon-indent-right"></i>Dividers</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="featured-boxes.html"><div><i class="icon-lightbulb"></i>Icon Boxes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="gallery.html"><div><i class="icon-picture"></i>Galleries</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="headings-dropcaps.html"><div><i class="icon-pencil2"></i>Heading Styles</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="icon-lists.html"><div><i class="icon-list-alt"></i>Icon Lists</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="gradients.html"><div><i class="icon-tint"></i>Gradients</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="lightbox.html"><div><i class="icon-resize-full"></i>Lightbox</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="item-overlays.html"><div><i class="icon-line-marquee-plus"></i>Item Overlays</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="form-elements.html"><div><i class="icon-edit"></i>Form Elements</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-uploads.html"><div><i class="icon-line-upload"></i>File Uploads</div></a>
+													</li>
+												</ul>
+												<ul class="sub-menu-container mega-menu-column col">
+													<li class="menu-item">
+														<a class="menu-link" href="lists-cards.html"><div><i class="icon-th-list"></i>Lists &amp; Cards</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="maps.html"><div><i class="icon-map-marker2"></i>Maps</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="media-embeds.html"><div><i class="icon-play"></i>Media Embeds</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="modal-popovers.html"><div><i class="icon-move"></i>Modal Boxes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="navigation.html"><div><i class="icon-align-justify2"></i>Navigations</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="pagination-progress.html"><div><i class="icon-cogs"></i>Pagination</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="pie-skills.html"><div><i class="icon-tasks"></i>Pies &amp; Skills</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="shape-dividers.html"><div><i class="icon-shapes"></i>Shape Dividers</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-range-slider.html"><div><i class="icon-line-move"></i>Range Slider</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-ratings.html"><div><i class="icon-star3"></i>Star Ratings</div></a>
+													</li>
+												</ul>
+												<ul class="sub-menu-container mega-menu-column col">
+													<li class="menu-item">
+														<a class="menu-link" href="pricing.html"><div><i class="icon-dollar"></i>Pricing Boxes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="process-steps.html"><div><i class="icon-thumbs-up"></i>Process Steps</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="promo-boxes.html"><div><i class="icon-rocket"></i>Promo Boxes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="quotes-blockquotes.html"><div><i class="icon-quote-left"></i>Blockquotes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="responsive.html"><div><i class="icon-laptop2"></i>Responsive</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="sections.html"><div><i class="icon-folder-open"></i>Sections</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="social-icons.html"><div><i class="icon-facebook2"></i>Social Icons</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="hover-animations.html"><div><i class="icon-hand-pointer"></i>Hover Animations</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-select-picker.html"><div><i class="icon-select"></i>Select Picker</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-select-box.html"><div><i class="icon-line-columns"></i>Select Boxes</div></a>
+													</li>
+												</ul>
+												<ul class="sub-menu-container mega-menu-column col">
+													<li class="menu-item">
+														<a class="menu-link" href="style-boxes.html"><div><i class="icon-exclamation-sign"></i>Alert Boxes</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="styled-icons.html"><div><i class="icon-flag2"></i>Styled Icons</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="tables.html"><div><i class="icon-table"></i>Tables</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="tabs.html"><div><i class="icon-star3"></i>Tabs</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="testimonials-twitter.html"><div><i class="icon-user4"></i>Testimonials</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="thumbnails-slider.html"><div><i class="icon-camera3"></i>Thumbnails</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="toggles-accordions.html"><div><i class="icon-ok-circle"></i>Toggles</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="lazy-loading.html"><div><i class="icon-line-loader"></i>Lazy Loading</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="component-radios-switches.html"><div><i class="icon-line-square-check"></i>Radios &amp; Switches</div></a>
+													</li>
+													<li class="menu-item">
+														<a class="menu-link" href="flip-cards.html"><div><i class="icon-refresh"></i>Flip Cards</div></a>
 													</li>
 												</ul>
 											</div>
