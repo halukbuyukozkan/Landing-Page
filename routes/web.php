@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PermissionController;
 
 /*
@@ -18,8 +19,8 @@ use App\Http\Controllers\Admin\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('front.home');
+Route::name('front.')->group(function () {
+    Route::get('/', [FrontController::class, 'index'])->name('index');
 });
 
 Route::middleware(['auth'])->group(function () {
