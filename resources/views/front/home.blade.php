@@ -181,8 +181,8 @@
 
 				<div class="section header-stick" style="background-color: #1D1D1D">
 					<div class="container clearfix">
-						<div class="row">
-							<div class="col-lg-9">
+						<div class="row my-5">
+							<div class="col-lg-9 mt-5">
 								<div class="heading-block bottommargin-sm">
 									<h3 style="color:white">About</h3>
 								</div>
@@ -190,7 +190,7 @@
 								Many of our customers wanted to work with us for different materials within that period. So we found ourselves supplying various blocks from Turkiye. Our goal is to become one of the 
 								leading companies in the sector that is proud for its customer satisfaction and service quality.</p>
 							</div>
-							<div class="col-lg-3">
+							<div class="col-lg-3 mt-5">
 								<a href="#" class="button button-3d button-dark button-large w-100 center" style="margin-top: 30px;">Check our Services</a>
 							</div>
 						</div>
@@ -200,7 +200,7 @@
 				<div class="container clearfix">
 
 					<div class="row justify-content-center col-mb-50">
-						<div class="col-sm-6 col-lg-4">
+						<div class="col-sm-6 col-lg-7">
 							<div class="feature-box media-box">
 								<div class="fbox-media">
 									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
@@ -211,8 +211,7 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="col-sm-6 col-lg-4">
+						<div class="col-sm-6 col-lg-4 mt-5">
 							<div class="feature-box media-box">
 								<div class="fbox-media">
 									<img src="img/2.png" alt="Why choose Us?">
@@ -220,18 +219,6 @@
 								<div class="fbox-content px-0">
 									<h3>Our Mission.<span class="subtitle">To Redefine your Brand.</span></h3>
 									<p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum molestias quo.</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 col-lg-4">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="images/services/3.jpg" alt="Why choose Us?">
-								</div>
-								<div class="fbox-content px-0">
-									<h3>What we Do.<span class="subtitle">Make our Customers Happy.</span></h3>
-									<p>Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse ab accusantium ea modi ut.</p>
 								</div>
 							</div>
 						</div>
