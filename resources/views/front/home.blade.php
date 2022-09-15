@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 
 	<link rel="stylesheet" href="css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,7 +47,7 @@
 		============================================= -->
 		<header id="header" class="full-header sticky-on-scrollup">
 			<div id="header-wrap">
-				<div class="container">
+				<div class="container shadow rounded" style="background-color: #E9E8E5">
 					<div class="header-row">
 
 						<!-- Logo
@@ -187,14 +188,6 @@
 
 				</div>
 
-				<div class="section parallax bottommargin-lg" style="background-image: url('images/parallax/3.jpg'); padding: 100px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
-					<div class="heading-block center border-bottom-0 mb-0">
-						<h2>"Everything is designed, but some things are designed well."</h2>
-					</div>
-				</div>
-
-
-
 				<div class="section topmargin-sm footer-stick">
 
 					<h4 class="text-uppercase text-center">What <span>Clients</span> say?</h4>
@@ -251,41 +244,24 @@
 
 
 				<div class="clearfix">
-
-					<div class="row justify-content-center col-mb-50">
-						<div class="col-sm-6 col-lg-3">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
+					<div class="slide-wrapper">
+					@foreach ($sliders as $slider)
+							<div class="col-sm-6 col-lg-3 slider-item">
+								<div class="feature-box media-box">
+									<div class="fbox-media">
+										<img src="{{ asset('storage/sliders/' . $slider->image)}}" alt="Why choose Us?">
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-sm-6 col-lg-2">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="img/2.png" alt="Why choose Us?">
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-lg-5">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-lg-2">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="img/2.png" alt="Why choose Us?">
-								</div>
-							</div>
-						</div>
+					@endforeach
 					</div>
-
+					<div class="section parallax" style="background-image: url('images/parallax/3.jpg');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+						<div class="heading-block center border-bottom-0 mb-0">
+							<h2>"Everything is designed, but some things are designed well."</h2>
+						</div>
+					</div>	
 				</div>
-
-
+		
 				<div class="section topmargin-sm footer-stick">
 
 					<h4 class="text-uppercase text-center">What <span>Clients</span> say?</h4>
@@ -597,6 +573,32 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+	<script>
+		var slider = tns({
+			container: '.slide-wrapper',
+			items: 2,
+			responsive: {
+				400: {
+					items: 1,
+				},
+				600: {
+					items: 2
+				},
+				1000: {
+					items: 3
+				}
+			},
+			gutter: 20,
+			slideBy: 1,
+			autoplay: true,
+        	mouseDrag: true,
+			controls: false,
+        	arrowKeys: false,
+			nav: false,
+        	autoplayButtonOutput: false,
+		});
+	</script>
 
 </body>
 </html>
