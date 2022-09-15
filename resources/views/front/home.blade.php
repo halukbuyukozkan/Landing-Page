@@ -149,53 +149,14 @@
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
 
-		<section id="slider" class="slider-element swiper_wrapper min-vh-60 min-vh-md-100">
-			<div class="slider-inner">
-
-				<div class="swiper-container swiper-parent">
-					<div class="swiper-wrapper">
-						@foreach ($sliders as $slider)
-						<div class="swiper-slide dark">
-							<div class="container">
-								<div class="slider-caption slider-caption-center">
-									<h2 data-animate="fadeInUp">{{ $slider->title }}</h2>
-									<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">{{ $slider->description }}</p>
-								</div>
-							</div>
-							<img class="swiper-slide-bg" src="{{ asset('storage/sliders/' . $slider->image) }}" alt="">
-						</div>	
-						@endforeach
-					</div>
-					<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
-					<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
-					<div class="slide-number"><div class="slide-number-current"></div><span>/</span><div class="slide-number-total"></div></div>
-				</div>
-
-			</div>
-		</section>
+		@include('front.slider')
 
 		<!-- Content
 		============================================= -->
 		<section id="content" style="background-color: #1D1D1D">
 			<div class="content-wrap" >
 
-				<div class="section header-stick" style="background-color: #1D1D1D">
-					<div class="container clearfix">
-						<div class="row my-5">
-							<div class="col-lg-9 mt-5">
-								<div class="heading-block bottommargin-sm">
-									<h3 style="color:white">About</h3>
-								</div>
-								<p class="mb-0" style="color:white">Globexim is a block marble supplier founded 2016 in Turkiye. Back in the time we took over Globexim, it was a quarry where only block marble is produced. 
-								Many of our customers wanted to work with us for different materials within that period. So we found ourselves supplying various blocks from Turkiye. Our goal is to become one of the 
-								leading companies in the sector that is proud for its customer satisfaction and service quality.</p>
-							</div>
-							<div class="col-lg-3 mt-5">
-								<a href="#" class="button button-3d button-dark button-large w-100 center" style="margin-top: 30px;">Check our Services</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				@include('front.about')
 
 				<div class="container clearfix">
 
@@ -285,6 +246,96 @@
 			</div>
 		</section><!-- #content end -->
 
+		<section id="content" style="background-color: #1D1D1D">
+			<div class="content-wrap" >
+
+
+				<div class="clearfix">
+
+					<div class="row justify-content-center col-mb-50">
+						<div class="col-sm-6 col-lg-3">
+							<div class="feature-box media-box">
+								<div class="fbox-media">
+									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-2">
+							<div class="feature-box media-box">
+								<div class="fbox-media">
+									<img src="img/2.png" alt="Why choose Us?">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-5">
+							<div class="feature-box media-box">
+								<div class="fbox-media">
+									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-2">
+							<div class="feature-box media-box">
+								<div class="fbox-media">
+									<img src="img/2.png" alt="Why choose Us?">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="section topmargin-sm footer-stick">
+
+					<h4 class="text-uppercase text-center">What <span>Clients</span> say?</h4>
+
+					<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
+						<div class="flexslider">
+							<div class="slider-wrap">
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+										<div class="testi-meta">
+											Steve Jobs
+											<span>Apple Inc.</span>
+										</div>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+										<div class="testi-meta">
+											Collis Ta'eed
+											<span>Envato Inc.</span>
+										</div>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="testi-image">
+										<a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
+										<div class="testi-meta">
+											John Doe
+											<span>XYZ Inc.</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
 		<!-- Footer
 		============================================= -->
 		<footer id="footer" class="dark">
