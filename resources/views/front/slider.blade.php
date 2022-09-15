@@ -7,8 +7,8 @@
                 <div class="swiper-slide dark">
                     <div class="container">
                         <div class="slider-caption slider-caption-center">
-                            <h2 data-animate="fadeInUp">{{ $slider->title }}</h2>
-                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">{{ $slider->description }}</p>
+                            <h2 class="text-dark" data-animate="fadeInUp">{{ $slider->title }}</h2>
+                            <h3 class="d-none d-sm-block text-dark" data-animate="fadeInUp" data-delay="200">{{ $slider->description }}</p>
                         </div>
                     </div>
                     <img class="swiper-slide-bg" src="{{ asset('storage/sliders/' . $slider->image) }}" alt="">
