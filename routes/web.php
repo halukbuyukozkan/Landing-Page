@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ExampleController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('permission', PermissionController::class);
         Route::resource('slider',SliderController::class);
         Route::resource('example',ExampleController::class);
+        Route::resource('category',CategoryController::class);
     });
 
     Route::prefix('account')->name('account.')->group(function () {
