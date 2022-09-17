@@ -55,7 +55,6 @@
 						<div id="logo">
 							<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="img/logo.jpg" alt="Globexim"></a>
 							<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png">Globexim</a>
-
 						</div><!-- #logo end -->
 
 						<div class="header-misc">
@@ -136,6 +135,31 @@
 											</ul>
 										</li>
 									</ul>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="index.html"><div>{{ __('About') }}</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="index.html"><div>{{ __('Products') }}</div></a>
+									<ul class="sub-menu-container">
+										<li class="menu-item">
+											<a class="menu-link" href="index-blog.html"><div>Home - Blog</div></a>
+											<ul class="sub-menu-container">
+												<li class="menu-item">
+													<a class="menu-link" href="index-blog.html"><div>Blog - Layout 1</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="index-blog-2.html"><div>Blog - Layout 2</div></a>
+												</li>
+												<li class="menu-item">
+													<a class="menu-link" href="index-blog-3.html"><div>Blog - Layout 3</div></a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="index.html"><div>{{ __('Contact') }}</div></a>
 								</li>
 							</ul>
 
@@ -246,11 +270,11 @@
 
 				<div class="clearfix">
 					<div class="slide-wrapper">
-					@foreach ($sliders as $slider)
+					@foreach ($examples as $example)
 							<div class="col-sm-6 col-lg-3 slider-item">
 								<div class="feature-box media-box">
 									<div class="fbox-media">
-										<img src="{{ asset('storage/sliders/' . $slider->image)}}" alt="Why choose Us?">
+										<img src="{{ asset('storage/examples/' . $example->image)}}" alt="Why choose Us?">
 									</div>
 								</div>
 							</div>
@@ -258,7 +282,7 @@
 					</div>
 					<div class="section parallax" style="background-image: url('images/parallax/3.jpg');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
 						<div class="heading-block center border-bottom-0 mb-0">
-							<h2>"Everything is designed, but some things are designed well."</h2>
+							<h2 style="color:#E9E8E5">"Everything is designed, but some things are designed well."</h2>
 						</div>
 					</div>	
 				</div>

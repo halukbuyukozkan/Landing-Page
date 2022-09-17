@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Example;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class FrontController extends Controller
     public function index()
     {
         $sliders = Slider::all();
+        $examples = Example::all();
 
-        return view('front.home',compact('sliders'));
+        return view('front.home',compact('sliders','examples'));
     }
 
     /**

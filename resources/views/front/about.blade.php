@@ -3,7 +3,7 @@
         <div class="row my-5">
             <div class="col-lg-9 mt-5">
                 <div class="heading-block bottommargin-sm">
-                    <h3 style="color:white">About</h3>
+                    <h3 style="color:#E9E8E5">About</h3>
                 </div>
                 <p class="mb-0" style="color:white">Globexim is a block marble supplier founded 2016 in Turkiye. Back in the time we took over Globexim, it was a quarry where only block marble is produced. 
                 Many of our customers wanted to work with us for different materials within that period. So we found ourselves supplying various blocks from Turkiye. Our goal is to become one of the 
