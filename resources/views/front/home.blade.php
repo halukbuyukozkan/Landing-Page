@@ -35,6 +35,19 @@
 		
 		#header.sticky-on-scrollup.show-sticky-onscroll.sticky-header #header-wrap { margin-top: 0px; }
 	</style>
+	<style>
+		[id^="particles-"]  {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+		}
+
+	</style>
 </head>
 
 <body class="stretched">
@@ -280,6 +293,17 @@
 							</div>
 					@endforeach
 					</div>
+					<div class="slide-wrapper2">
+						@foreach ($examples as $example)
+								<div class="col-sm-6 col-lg-3 slider-item">
+									<div class="feature-box media-box">
+										<div class="fbox-media">
+											<img src="{{ asset('storage/examples/' . $example->image)}}" alt="Why choose Us?">
+										</div>
+									</div>
+								</div>
+						@endforeach
+						</div>
 					<div class="section parallax" style="background-image: url('images/parallax/3.jpg');" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
 						<div class="heading-block center border-bottom-0 mb-0">
 							<h2 style="color:#E9E8E5">"Everything is designed, but some things are designed well."</h2>
@@ -287,54 +311,30 @@
 					</div>	
 				</div>
 		
-				<div class="section topmargin-sm footer-stick">
 
-					<h4 class="text-uppercase text-center">What <span>Clients</span> say?</h4>
+					<div class="content-wrap py-0">
 
-					<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
-						<div class="flexslider">
-							<div class="slider-wrap">
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+						<div class="section bg-danger m-0" style="padding: 40px 0;">
+							<div id="particles-line"></div>
+							<div class="container clearfix" style="max-width: 600px">
+		
+								<div class="center dark" >
+		
+									<div class="heading-block">
+										<h2>Section with Line Particles</h2>
+										<span>Show off your Important Content with Elegance &amp; Attitude.</span>
 									</div>
-									<div class="testi-content">
-										<p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
-										<div class="testi-meta">
-											Steve Jobs
-											<span>Apple Inc.</span>
-										</div>
-									</div>
+		
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic, obcaecati, ullam, laboriosam!</p>
+		
+									<a href="#" class="button button-white button-light button-large">Check out</a>
+		
 								</div>
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
-										<div class="testi-meta">
-											Collis Ta'eed
-											<span>Envato Inc.</span>
-										</div>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="testi-image">
-										<a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
-										<div class="testi-meta">
-											John Doe
-											<span>XYZ Inc.</span>
-										</div>
-									</div>
-								</div>
+		
 							</div>
 						</div>
 					</div>
 
-				</div>
 			</div>
 		</section>
 		<!-- Footer
@@ -594,6 +594,18 @@
 	============================================= -->
 	<script src="js/jquery.js"></script>
 	<script src="js/plugins.min.js"></script>
+	<script src="js/plugins.js"></script>
+
+		<!-- Main Particles Js
+	============================================= -->
+	<script src="js/particles/particles.min.js"></script>
+
+	<!-- - Configure Custom json - https://vincentgarreau.com/particles.js/#default -->
+	<script src="js/particles/particles-line.js"></script><!-- Particles Line -->
+	<script src="js/particles/particles-nasa.js"></script><!-- Particles Nasa -->
+	<script src="js/particles/particles-bubbles.js"></script><!-- Particles Bubbles -->
+	<script src="js/particles/particles-snow.js"></script><!-- Particles Snow -->
+	<script src="js/particles/particles-poly.js"></script><!-- Particles Poly -->
 
 	<!-- Footer Scripts
 	============================================= -->
@@ -611,7 +623,7 @@
 					items: 2
 				},
 				1000: {
-					items: 3
+					items: 4
 				}
 			},
 			gutter: 20,
@@ -622,6 +634,32 @@
         	arrowKeys: false,
 			nav: false,
         	autoplayButtonOutput: false,
+		});
+	</script>
+	<script>
+		var slider = tns({
+			container: '.slide-wrapper2',
+			items: 2,
+			responsive: {
+				400: {
+					items: 1,
+				},
+				600: {
+					items: 2
+				},
+				1000: {
+					items: 3
+				}
+			},
+			gutter: 20,
+			slideBy: 1,
+			edgePadding: 120,
+			autoplay: true,
+			mouseDrag: true,
+			controls: false,
+			arrowKeys: false,
+			nav: false,
+			autoplayButtonOutput: false,
 		});
 	</script>
 

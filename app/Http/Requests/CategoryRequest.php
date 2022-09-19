@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:roles,name',
-            'categories' => 'array|nullable|exists:categories,id',
+            'category_id' => 'array|nullable|exists:categories,id',
         ];
     }
 }

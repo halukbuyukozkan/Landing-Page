@@ -16,6 +16,12 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate();
+        
+        foreach($categories as $category)
+        {
+            //dd($category->category_id);
+        }
+
         return view('admin.category.index',compact('categories'));
     }
 
@@ -41,8 +47,8 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $validated = $request->validated();
-
         $category = Category::create($validated);
+        $category->categories()->associate($category);
 
         return redirect()->route('admin.category.index')->with('success', __('Role created successfully'));
     }
@@ -80,7 +86,9 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
+        
         $category->fill($request->validated());
+        $category->categories()->associate($category);
         $category->save();
 
         return redirect()->route('admin.category.index')->with('success', 'Example updated successfully.');
