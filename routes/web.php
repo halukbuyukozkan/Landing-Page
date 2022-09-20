@@ -1,11 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ExampleController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +22,8 @@ use App\Http\Controllers\Admin\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('front.')->group(function () {
+    Route::get('/', [FrontController::class, 'index'])->name('index');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -32,6 +36,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('role', RoleController::class);
         Route::resource('permission', PermissionController::class);
         Route::resource('slider',SliderController::class);
+        Route::resource('example',ExampleController::class);
+        Route::resource('category',CategoryController::class);
+        Route::resource('product',ProductController::class);
     });
 
     Route::prefix('account')->name('account.')->group(function () {

@@ -21,4 +21,13 @@
             <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
             {{ __('Sliders') }}
         </x-side-link>
+        <x-side-link href="{{ route('admin.example.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.example.*')">
+            {{ __('Examples') }}
+        </x-side-link>
+        <x-side-link href="{{ route('admin.category.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.category.*')">
+            {{ __('Categories') }}
+        </x-side-link>
+        <x-side-link href="{{ route('admin.product.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.product.*')">
+            {{ __('Products') }}
+        </x-side-link>
 @endif
