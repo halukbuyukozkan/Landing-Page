@@ -199,29 +199,31 @@
 
 				<div class="container clearfix">
 
-					<div class="row justify-content-center col-mb-50">
-						<div class="col-sm-6 col-lg-7">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="{{ asset('img/1.png')}}" alt="Why choose Us?">
+					<div id="portfolio" class="portfolio row grid-container gutter-30" data-layout="fitRows">
+
+						@foreach ($products as $product)
+							<article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons">
+								<div class="grid-inner">
+									<div class="portfolio-image">
+										<a href="portfolio-single.html">
+											<img src="{{ asset('storage/products/' . $product->image) }}" alt="Open Imagination">
+										</a>
+										<div class="bg-overlay">
+											<div class="bg-overlay-content dark" data-hover-animate="fadeIn">
+												<a href="images/portfolio/full/1.jpg" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-lightbox="image" title="Image"><i class="icon-line-plus"></i></a>
+												<a href="portfolio-single.html" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
+											</div>
+											<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
+										</div>
+									</div>
+									<div class="portfolio-desc">
+										<h3><a class="text-white" href="portfolio-single.html">{{ $product->title }}</a></h3>
+										<span>{{ $product->description }}</span>
+									</div>
 								</div>
-								<div class="fbox-content px-0">
-									<h3>Why choose Us.<span class="subtitle">Because we are Reliable.</span></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-lg-4 mt-5">
-							<div class="feature-box media-box">
-								<div class="fbox-media">
-									<img src="img/2.png" alt="Why choose Us?">
-								</div>
-								<div class="fbox-content px-0">
-									<h3>Our Mission.<span class="subtitle">To Redefine your Brand.</span></h3>
-									<p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum molestias quo.</p>
-								</div>
-							</div>
-						</div>
+							</article>
+						@endforeach			
+
 					</div>
 
 				</div>
@@ -282,17 +284,6 @@
 
 
 				<div class="clearfix">
-					<div class="slide-wrapper">
-					@foreach ($examples as $example)
-							<div class="col-sm-6 col-lg-3 slider-item">
-								<div class="feature-box media-box">
-									<div class="fbox-media">
-										<img src="{{ asset('storage/examples/' . $example->image)}}" alt="Why choose Us?">
-									</div>
-								</div>
-							</div>
-					@endforeach
-					</div>
 					<div class="slide-wrapper2">
 						@foreach ($examples as $example)
 								<div class="col-sm-6 col-lg-3 slider-item">
@@ -310,31 +301,6 @@
 						</div>
 					</div>	
 				</div>
-		
-
-					<div class="content-wrap py-0">
-
-						<div class="section bg-danger m-0" style="padding: 40px 0;">
-							<div id="particles-line"></div>
-							<div class="container clearfix" style="max-width: 600px">
-		
-								<div class="center dark" >
-		
-									<div class="heading-block">
-										<h2>Section with Line Particles</h2>
-										<span>Show off your Important Content with Elegance &amp; Attitude.</span>
-									</div>
-		
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic, obcaecati, ullam, laboriosam!</p>
-		
-									<a href="#" class="button button-white button-light button-large">Check out</a>
-		
-								</div>
-		
-							</div>
-						</div>
-					</div>
-
 			</div>
 		</section>
 		<!-- Footer

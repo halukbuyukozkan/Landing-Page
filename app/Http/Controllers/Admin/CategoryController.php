@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
@@ -48,7 +48,6 @@ class CategoryController extends Controller
     {
         $validated = $request->validated();
         $category = Category::create($validated);
-        $category->categories()->associate($category);
 
         return redirect()->route('admin.category.index')->with('success', __('Role created successfully'));
     }
