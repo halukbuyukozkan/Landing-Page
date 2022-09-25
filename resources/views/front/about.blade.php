@@ -10,7 +10,7 @@
                 leading companies in the sector that is proud for its customer satisfaction and service quality.</p>
             </div>
             <div class="col-lg-3 mt-5">
-                <a href="#" class="button button-3d button-dark button-large w-100 center" style="margin-top: 30px;">Check our Services</a>
+                <a href="{{ route('front.category.index') }}" class="button button-3d button-dark button-large w-100 center" style="margin-top: 30px;">Check our Services</a>
             </div>
         </div>
     </div>
