@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ExampleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\FrontCategoryController;
+use App\Http\Controllers\FrontCategoryController;
 use App\Http\Controllers\FrontProductController;
 
 /*
@@ -27,7 +27,7 @@ use App\Http\Controllers\FrontProductController;
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::resource('category',FrontCategoryController::class);
-    Route::resource('product',FrontProductController::class);
+    Route::resource('category.product',FrontProductController::class);
 });
 
 Route::middleware(['auth'])->group(function () {

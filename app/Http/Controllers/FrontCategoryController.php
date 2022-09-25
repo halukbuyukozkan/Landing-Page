@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class FrontCategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('front.category.index');
+        return view('front.category.index',compact('categories'));
     }
 
     /**
@@ -48,7 +48,7 @@ class FrontCategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return redirect()->route('front.category.product.index',compact('category'));
     }
 
     /**

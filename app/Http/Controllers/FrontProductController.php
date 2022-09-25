@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,11 @@ class FrontProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        
+        $products = $category->products;
 
-        return view('front.product.index');
+        return view('front.product.index',compact('products'));
     }
 
     /**
@@ -46,9 +47,10 @@ class FrontProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Category $category,Product $product)
     {
-        //
+
+        return view('front.product.show',compact('product'));
     }
 
     /**
