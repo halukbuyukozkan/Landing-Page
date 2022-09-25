@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Property;
 
 class ProductController extends Controller
 {
@@ -33,7 +34,9 @@ class ProductController extends Controller
 
         $categories = Category::all();
 
-        return view('admin.product.form',compact('categories','product'));
+        $properties = Property::all();
+
+        return view('admin.product.form',compact('categories','product','properties'));
     }
 
     /**
@@ -44,15 +47,18 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $product = $request->validated();
+        $data = $request->validated();
         if ($request->hasFile('image')) {
             $destination = 'public/products';
             $image = $request->file('image');
             $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
             $path = $request->file('image')->storeAs($destination, $imageName);
-            $product['image'] = $imageName;
+            $data['image'] = $imageName;
         }
-        Product::create($product);
+        $product = Product::create($data);
+
+        $product->properties()->sync($data['properties'] ?? []);
+
         return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
     }
 
@@ -73,9 +79,13 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product,Request $request)
     {
-        //
+        $product->fill($request->old());
+        $categories = Category::all();
+        $properties = Property::all();
+
+        return view('admin.product.form',compact('product','categories','properties'));
     }
 
     /**
@@ -85,9 +95,22 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $destination = 'public/products';
+            $image = $request->file('image');
+            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs($destination, $imageName);
+            $data['image'] = $imageName;
+        }
+
+        $product->update($data);
+        $product->properties()->sync($data['properties'] ?? []);
+
+        return redirect()->route('admin.product.index')->with('success', 'Role updated successfully');
     }
 
     /**

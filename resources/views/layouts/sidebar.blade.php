@@ -30,4 +30,7 @@
         <x-side-link href="{{ route('admin.product.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.product.*')">
             {{ __('Products') }}
         </x-side-link>
+        <x-side-link href="{{ route('admin.property.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.property.*')">
+            {{ __('Properties') }}
+        </x-side-link>
 @endif

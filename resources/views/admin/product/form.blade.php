@@ -69,6 +69,25 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="properties">{{ __('Properties') }}</label>
+                            <select class="form-control @error('properties') is-invalid @enderror" id="properties"
+                                name="properties[]" multiple>
+                                @foreach ($properties as $property)
+                                    <option value="{{ $property->id }}">
+                                        {{ $property->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('properties')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
                         <label for="image">{{ __('İmage') }}</label>
                         <input id="image" type="file" class="form-control" name="image" value="{{ $product->image }}" autocomplete="image">
 

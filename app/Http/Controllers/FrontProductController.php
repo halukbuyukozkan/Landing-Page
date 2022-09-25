@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class FrontProductController extends Controller
 {
@@ -49,8 +51,20 @@ class FrontProductController extends Controller
      */
     public function show(Category $category,Product $product)
     {
-
-        return view('front.product.show',compact('product'));
+        $surfaces = $product->properties->filter(function ($value, $key) {
+            return $value->type->value == 'surface';
+        });
+        $dimensions = $product->properties->filter(function ($value, $key) {
+            return $value->type->value == 'dimension';
+        });
+        $availables = $product->properties->filter(function ($value, $key) {
+            return $value->type->value == 'available';
+        });
+        $usages = $product->properties->filter(function ($value, $key) {
+            return $value->type->value == 'usage';
+        });
+        
+        return view('front.product.show',compact('product','surfaces','dimensions','availables','usages'));
     }
 
     /**
@@ -59,7 +73,7 @@ class FrontProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product,Request $request)
     {
         //
     }

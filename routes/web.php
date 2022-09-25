@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\FrontCategoryController;
 use App\Http\Controllers\FrontProductController;
+use App\Http\Controllers\Admin\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('example',ExampleController::class);
         Route::resource('category',CategoryController::class);
         Route::resource('product',ProductController::class);
+        Route::resource('property',PropertyController::class);
     });
 
     Route::prefix('account')->name('account.')->group(function () {
