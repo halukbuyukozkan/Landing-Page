@@ -14,9 +14,7 @@ class FrontCategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-
-        return view('front.category.index',compact('categories'));
+        //
     }
 
     /**
@@ -48,7 +46,14 @@ class FrontCategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return redirect()->route('front.category.product.index',compact('category'));
+        //
+    }
+
+    public function child(Category $category)
+    {
+        $categories = $category->categories;
+
+        return view('front.category.index',compact('categories'));
     }
 
     /**

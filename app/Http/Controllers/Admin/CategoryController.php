@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -42,6 +43,14 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $validated = $request->validated();
+        if ($request->hasFile('image')) {
+            $destination = 'public/categories';
+            $image = $request->file('image');
+            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs($destination, $imageName);
+            $validated['image'] = $imageName;
+        }
+        
         $category = Category::create($validated);
 
         return redirect()->route('admin.category.index')->with('success', __('Role created successfully'));
@@ -81,6 +90,15 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
         $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $destination = 'public/categories';
+            $image = $request->file('image');
+            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs($destination, $imageName);
+            $data['image'] = $imageName;
+        }
+
         $category->fill($data);
         $category->save();
 

@@ -51,6 +51,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="image">{{ __('İmage') }}</label>
+                        <input id="image" type="file" class="form-control" name="image" value="{{ $category->image }}" autocomplete="image">
+
+                        @if ($category->image)
+                        <img src="{{ asset('storage/categories/' . $category->image) }}" alt="{{ $category->title }}"
+                            class="mt-3" style="max-height: 100px">
+                        @endif
+
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-success">

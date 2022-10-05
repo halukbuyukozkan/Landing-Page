@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
@@ -27,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        view()->composer('*',function($view) {
+            $view->with('parentcategories', Category::where('category_id',null)->get());
+        });
+    
         Paginator::useBootstrap();
         if (App::environment('local')) {
             JetstrapFacade::useAdminLte3();

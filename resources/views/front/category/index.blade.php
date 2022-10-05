@@ -18,19 +18,19 @@
                                     <article class="portfolio-item col-sm-6 col-12 pf-media pf-icons">
                                         <div class="grid-inner">
                                             <div class="portfolio-image">
-                                                <a href="{{ route('front.category.show',$category) }}">
-                                                    <img class="rounded" src="{{ asset('img/1.png') }}" alt="Open Imagination">
+                                                <a href="{{ route('front.subcategory.show',$category) }}">
+                                                    <img class="rounded" src="{{ asset('storage/categories/' . $category->image) }}" alt="Open Imagination">
                                                 </a>
                                                 <div class="bg-overlay">
                                                     <div class="bg-overlay-content dark" data-hover-animate="fadeIn">
                                                         <a href="images/portfolio/full/1.jpg" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-lightbox="image" title="Image"><i class="icon-line-plus"></i></a>
-                                                        <a href="{{ route('front.category.show',$category) }}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
+                                                        <a href="{{ route('front.subcategory.show',$category) }}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
                                                     </div>
                                                     <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
                                                 </div>
                                             </div>
                                             <div class="portfolio-desc">
-                                                <h3><a href="{{ route('front.category.show',$category) }}">{{ $category->name }}</a></h3>
+                                                <h3><a href="{{ route('front.subcategory.show',$category) }}">{{ $category->name }}</a></h3>
                                                 <span><a href="#">Media</a>, <a href="#">Icons</a></span>
                                             </div>
                                         </div>

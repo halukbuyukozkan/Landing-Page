@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\RoleController;
@@ -27,7 +28,9 @@ use App\Http\Controllers\Admin\PropertyController;
 
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
-    Route::resource('category',FrontCategoryController::class);
+    Route::get('/about', [AboutController::class,'about'])->name('about');
+    Route::resource('subcategory',FrontCategoryController::class);
+    Route::get('category/{category}',[FrontCategoryController::class,'child'])->name('child');
     Route::resource('category.product',FrontProductController::class);
 });
 
