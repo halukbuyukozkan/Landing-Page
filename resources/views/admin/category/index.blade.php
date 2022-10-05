@@ -29,10 +29,10 @@
                             </td>
                             <td>
                                 <div class="col-8">
-                                    @if($categories)
-                                    {{ $category->categories }}
-                                    @else
-                                    -
+                                    @if($category->categories)
+                                    @foreach ($category->categories as $category)
+                                        {{ $category->name }}
+                                    @endforeach
                                     @endif
                                 </div>
                             </td>

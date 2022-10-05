@@ -16,11 +16,6 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate();
-        
-        foreach($categories as $category)
-        {
-            //dd($category->category_id);
-        }
 
         return view('admin.category.index',compact('categories'));
     }
@@ -85,9 +80,8 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        
-        $category->fill($request->validated());
-        $category->categories()->associate($category);
+        $data = $request->validated();
+        $category->fill($data);
         $category->save();
 
         return redirect()->route('admin.category.index')->with('success', 'Example updated successfully.');

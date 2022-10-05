@@ -30,8 +30,8 @@
                                                 </div>
                                             </div>
                                             <div class="portfolio-desc">
-                                                <h3><a href="{{ route('front.category.product.show',['category' => $product->category , 'product' => $product]) }}">{{ $product->name }}</a></h3>
-                                                <span><a href="#">Media</a>, <a href="#">Icons</a></span>
+                                                <h3><a href="{{ route('front.category.product.show',['category' => $product->category , 'product' => $product]) }}">{{ $product->title }}</a></h3>
+                                                <span><a href="#">{{ $product->description }}</a></span>
                                             </div>
                                         </div>
                                     </article>

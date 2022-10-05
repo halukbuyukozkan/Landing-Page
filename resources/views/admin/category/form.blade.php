@@ -28,24 +28,22 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="category_id">{{ __('Categories') }}</label>
-                            <select class="form-control @error('category_id') is-invalid @enderror" id="category_id"
-                                name="category_id[]" multiple>
-                                @foreach ($categories as $category)
-                                    @if($category->categories)
-                                    <option value="{{ $category->id }}" {{ $category->categories->contains($category) ? 'selected' : '' }}>
-                                        {{ $category->name }}
-                                    </option>
-                                    @else
-                                    <option value="{{ $category->id }}">
-                                        {{ $category->name }}
-                                    </option>
-                                    @endif
-                                @endforeach
+                            <select class="form-control @error('category_id') is-invalid @enderror" id="category_id" name="category_id"> 
+                                <option value="">-</option>
+                                @if($categories)
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                @else
+                                    <option value="#">no categories</option>
+                                @endif
                             </select>
-                            @error('category_id')
+                            @error('categories')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
