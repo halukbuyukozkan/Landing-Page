@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class FrontCategoryController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        return view('front.category.index',compact('category'));
     }
 
     /**
@@ -44,9 +45,11 @@ class FrontCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category,Category $subcategory)
     {
-        return redirect()->route('front.category.subcategory.index',compact('category'));
+        $products = $subcategory->products;
+
+        return view('front.product.index',compact('products'));
     }
 
     /**

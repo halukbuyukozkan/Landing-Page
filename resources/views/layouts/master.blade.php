@@ -106,7 +106,7 @@
 									<ul class="sub-menu-container">
 										@foreach($parentcategories as $category)
 										<li class="menu-item">
-											<a class="menu-link" href="{{ route('front.child',$category) }}"><div>{{ $category->name }}</div></a>
+											<a class="menu-link" href="{{ route('front.category.show',$category) }}"><div>{{ $category->name }}</div></a>
 										</li>
 										@endforeach
 									</ul>

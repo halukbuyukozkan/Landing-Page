@@ -49,7 +49,7 @@ class FrontProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category,Product $product)
+    public function show(Category $subcategory,Product $product)
     {
         $surfaces = $product->properties->filter(function ($value, $key) {
             return $value->type->value == 'surface';

@@ -29,13 +29,13 @@
 										<div class="bg-overlay">
 											<div class="bg-overlay-content dark" data-hover-animate="fadeIn">
 												<a href="images/portfolio/full/1.jpg" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-lightbox="image" title="Image"><i class="icon-line-plus"></i></a>
-												<a href="{{ route('front.category.product.show',['category' => $product->category , 'product' => $product]) }}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
+												<a href="#" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
 											</div>
 											<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
 										</div>
 									</div>
 									<div class="portfolio-desc">
-										<h3><a class="text-white" href="{{ route('front.category.product.show',['category' => $product->category , 'product' => $product]) }}">{{ $product->title }}</a></h3>
+										<h3><a class="text-white" href="#">{{ $product->title }}</a></h3>
 										<span>{{ $product->description }}</span>
 									</div>
 								</div>

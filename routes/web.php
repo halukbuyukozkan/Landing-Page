@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\FrontCategoryController;
 use App\Http\Controllers\FrontProductController;
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,9 @@ use App\Http\Controllers\Admin\PropertyController;
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::get('/about', [AboutController::class,'about'])->name('about');
-    Route::resource('subcategory',FrontCategoryController::class);
-    Route::get('category/{category}',[FrontCategoryController::class,'child'])->name('child');
-    Route::resource('category.product',FrontProductController::class);
+    Route::resource('category',FrontCategoryController::class);
+    Route::resource('category.subcategory',SubCategoryController::class);
+    Route::resource('subcategory.product',FrontProductController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
