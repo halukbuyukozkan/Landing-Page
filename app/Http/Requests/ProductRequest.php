@@ -27,7 +27,6 @@ class ProductRequest extends FormRequest
             'category_id' => 'required',
             'order' => 'required',
             'title' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'nullable|string',
             'properties' => 'array|exists:properties,id',
         ];

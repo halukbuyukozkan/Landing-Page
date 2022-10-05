@@ -17,9 +17,7 @@ class FrontProductController extends Controller
      */
     public function index(Category $category)
     {
-        $products = $category->products;
-
-        return view('front.product.index',compact('products'));
+        //
     }
 
     /**

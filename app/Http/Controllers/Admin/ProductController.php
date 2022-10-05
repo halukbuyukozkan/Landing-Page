@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Property;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
-use App\Models\Property;
 
 class ProductController extends Controller
 {
@@ -48,16 +49,17 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $destination = 'public/products';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $data['image'] = $imageName;
-        }
         $product = Product::create($data);
 
         $product->properties()->sync($data['properties'] ?? []);
+
+        foreach ($request->file('images') as $imagefile) {
+            $image = new Image;
+            $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
+            $image->url = $path;
+            $image->product_id = $product->id;
+            $image->save();
+          }
 
         return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
     }
@@ -98,19 +100,18 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         $data = $request->validated();
-
-        if ($request->hasFile('image')) {
-            $destination = 'public/products';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $data['image'] = $imageName;
-        }
-
         $product->update($data);
         $product->properties()->sync($data['properties'] ?? []);
 
-        return redirect()->route('admin.product.index')->with('success', 'Role updated successfully');
+        foreach ($request->file('images') as $imagefile) {
+            $image = new Image;
+            $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
+            $image->url = $path;
+            $image->product_id = $product->id;
+            $image->save();
+          }
+
+        return redirect()->route('admin.product.index')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -121,6 +122,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('front.product.index');
     }
 }

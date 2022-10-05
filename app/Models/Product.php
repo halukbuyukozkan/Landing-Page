@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id','title','image','slug','description','order'];
+    protected $fillable = ['category_id','title','slug','description','order'];
 
     public function category():BelongsTo
     {
@@ -20,6 +21,11 @@ class Product extends Model
     public function properties()
     {
         return $this->belongsToMany(Property::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
     }
 
 }

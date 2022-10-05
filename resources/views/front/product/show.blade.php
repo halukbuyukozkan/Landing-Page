@@ -7,14 +7,15 @@
 
 				<div class="row">
 					<div class="text-center d-flex justify-content-center">
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<div class="portfolio-image">
 								<div class="grid-inner">
 									<div class="fslider" data-arrows="false" data-speed="400" data-pause="4000">
 										<div class="flexslider">
 											<div class="slider-wrap">
-												<div class="slide"><a href="portfolio-single-gallery.html"><img src="{{ asset('storage/products/' . $product->image) }}" alt="Morning Dew"></a></div>
-												<div class="slide"><a href="portfolio-single-gallery.html"><img src="{{ asset('storage/products/' . $product->image) }}" alt="Morning Dew"></a></div>
+												@foreach($product->images as $image)
+												<div class="slide"><img src="{{ asset($image->url) }}" alt="Morning Dew"></div>
+												@endforeach
 											</div>
 										</div>
 									</div>

@@ -89,7 +89,7 @@
                     
                     <div class="col-md-6">
                         <label for="image">{{ __('İmage') }}</label>
-                        <input id="image" type="file" class="form-control" name="image" value="{{ $product->image }}" autocomplete="image">
+                        <input id="image" type="file" class="form-control" name="images[]" value="{{ $product->image }}" autocomplete="image" multiple>
 
                         @if ($product->image)
                         <img src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->title }}"

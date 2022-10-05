@@ -53,7 +53,7 @@ class CategoryController extends Controller
         
         $category = Category::create($validated);
 
-        return redirect()->route('admin.category.index')->with('success', __('Role created successfully'));
+        return redirect()->route('admin.category.index')->with('success', __('Category created successfully'));
     }
 
     /**
@@ -102,7 +102,7 @@ class CategoryController extends Controller
         $category->fill($data);
         $category->save();
 
-        return redirect()->route('admin.category.index')->with('success', 'Example updated successfully.');
+        return redirect()->route('admin.category.index')->with('success', 'Category updated successfully.');
     }
 
     /**
