@@ -14,10 +14,11 @@
 							============================================= -->
                             <div class="container">
                                 <div id="portfolio" class="portfolio row grid-container gutter-20">
+                                    <div class="col-md-12 d-flex justify-content-center">
                                     @foreach($products as $product)
-                                    <article class="portfolio-item col-sm-6 col-12 pf-media pf-icons">
+                                    <article class="portfolio-item col-sm-4 col-md-3 pf-media pf-icons text-center">
                                         <div class="grid-inner">
-                                            <div class="portfolio-image">
+                                            <div class="portfolio-image" style="border-radius: 50%">
                                                 <a href="{{ route('front.subcategory.product.show',['subcategory' => $product->category , 'product' => $product]) }}">
                                                     <img class="rounded" src="{{ asset( $product->images[0]->url ) }}" alt="Open Imagination">
                                                 </a>
@@ -36,6 +37,7 @@
                                         </div>
                                     </article>
                                     @endforeach
+                                    </div>
     
                                 </div>
                             </div>

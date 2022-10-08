@@ -19,7 +19,7 @@
                                     @foreach($category->categories as $subcategory)
                                     <article class="portfolio-item col-sm-4 col-md-3 pf-media pf-icons text-center">
                                         <div class="grid-inner">
-                                            <div class="portfolio-image">
+                                            <div class="portfolio-image" style="border-radius: 50%">
                                                 <a href="{{ route('front.category.subcategory.show',['category' => $category,'subcategory' => $subcategory]) }}">
                                                     <img src="{{ asset('storage/categories/' . $subcategory->image) }}" alt="Open Imagination">
                                                 </a>

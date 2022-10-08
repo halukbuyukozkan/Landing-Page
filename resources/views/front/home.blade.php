@@ -17,14 +17,13 @@
 				@include('front.about')
 
 				<div class="container clearfix">
-
 					<div id="portfolio" class="portfolio row grid-container gutter-30" data-layout="fitRows">
 						@foreach ($products as $product)
 							<article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons">
 								<div class="grid-inner">
 									<div class="portfolio-image">
 										<a href="#">
-											<img src="{{ asset('storage/products/' . $product->image) }}" alt="Open Imagination">
+											<img src="{{ asset($product->images->first()->url) }}" alt="Open Imagination">
 										</a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content dark" data-hover-animate="fadeIn">

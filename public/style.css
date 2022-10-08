@@ -6944,7 +6944,7 @@ body:not(.device-touch) .portfolio {
 .portfolio-item .portfolio-image > a,
 .portfolio-item .portfolio-image img {
 	object-fit:none;
-	border-radius:50%;
+	border-radius:5%;
 }
 
 @media (min-width: 768px) {
