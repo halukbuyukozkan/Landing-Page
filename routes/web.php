@@ -15,6 +15,7 @@ use App\Http\Controllers\FrontCategoryController;
 use App\Http\Controllers\FrontProductController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('role', RoleController::class);
         Route::resource('permission', PermissionController::class);
         Route::resource('slider',SliderController::class);
+        Route::resource('client', ClientController::class);
         Route::resource('example',ExampleController::class);
         Route::resource('category',CategoryController::class);
         Route::resource('product',ProductController::class);
