@@ -6,8 +6,8 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Property;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
@@ -58,6 +58,7 @@ class ProductController extends Controller
             $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
             $image->url = $path;
             $image->product_id = $product->id;
+            $image->name = $imagefile->hashName();
             $image->save();
           }
 
@@ -122,8 +123,24 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        foreach($product->images as $image)
+        {
+            
+            if(File::exists(public_path('images/resource/'. $image->name))){
+            File::delete(public_path('images/resource/'. $image->name));
+            }else{
+            dd('File does not exists.');
+            }
+            $image->delete();
+        }
+
+        
+        foreach($product->properties as $property) {
+            $product->properties()->detach($property->id);
+        }
+
         $product->delete();
 
-        return redirect()->route('front.product.index');
+        return redirect()->route('admin.product.index');
     }
 }

@@ -11872,8 +11872,8 @@ body:not(.device-touch) .clients-grid .grid-item a {
 .testimonial-full .testi-image img,
 .testimonial-full .testi-image i {
 	display: block;
-	width: 72px;
-	height: 72px;
+	width: 150px;
+	height: 150px;
 }
 
 .testimonial-full .testi-image i { line-height: 72px; }

@@ -59,7 +59,6 @@
 										<p>{{ $client->description }}</p>
 										<div class="testi-meta">
 											{{ $client->name }}
-											<span>test Inc.</span>
 										</div>
 									</div>
 								</div>

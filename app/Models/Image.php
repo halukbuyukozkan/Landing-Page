@@ -11,7 +11,7 @@ class Image extends Model
     use HasFactory;
 
     protected $fillable = [
-        'url', 'product_id'
+        'name','url', 'product_id'
     ];
 
     public function product(): BelongsTo
