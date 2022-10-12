@@ -1,6 +1,8 @@
 {
     "Users": "Kullanıcılar",
     "Name": "Ad",
+    "English Name": "İngilizce ad",
+    "Turkhis Name": "Türkçe ad",
     "Email": "E-posta",
     "Roles": "Roller",
     "Actions": "Eylemler",
@@ -19,6 +21,9 @@
     "Edit :permission Permission": ":permission İznini Düzenle",
     "System": "Sistem",
     "Home": "Ana Sayfa",
+    "About": "Hakkımızda",
+    "Products": "Ürünler",
+    "Contact": "İletİşİm",
     "Dashboard": "Gösterge Paneli",
     "Settings": "Ayarlar",
     "Log Out": "Çıkış Yap",

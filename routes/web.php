@@ -16,6 +16,7 @@ use App\Http\Controllers\FrontProductController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ use App\Http\Controllers\ClientController;
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::get('/about', [AboutController::class,'about'])->name('about');
+    Route::get('/{lang}', [LanguageController::class,'change'])->name('changelang');
     Route::resource('category',FrontCategoryController::class);
     Route::resource('category.subcategory',SubCategoryController::class);
     Route::resource('subcategory.product',FrontProductController::class);

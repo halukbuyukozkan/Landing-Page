@@ -19,12 +19,38 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">{{ __('name') }}</label>
+                            <label for="nametr">{{ __('Turkhis Name') }}</label>
+                            <input type="text" name="nametr" id="nametr" class="form-control"
+                                value="{{ $category->nametr }}">
+                        </div>
+
+                        @error('nametr')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">{{ __('English Name') }}</label>
                             <input type="text" name="name" id="name" class="form-control"
                                 value="{{ $category->name }}">
                         </div>
 
                         @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="image">{{ __('İmage') }}</label>
+                        <input id="image" type="file" class="form-control" name="image" value="{{ $category->image }}" autocomplete="image">
+
+                        @if ($category->image)
+                        <img src="{{ asset('storage/categories/' . $category->image) }}" alt="{{ $category->title }}"
+                            class="mt-3" style="max-height: 100px">
+                        @endif
+
+                        @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -49,21 +75,6 @@
                                 </span>
                             @enderror
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="image">{{ __('İmage') }}</label>
-                        <input id="image" type="file" class="form-control" name="image" value="{{ $category->image }}" autocomplete="image">
-
-                        @if ($category->image)
-                        <img src="{{ asset('storage/categories/' . $category->image) }}" alt="{{ $category->title }}"
-                            class="mt-3" style="max-height: 100px">
-                        @endif
-
-                        @error('image')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
                     </div>
                 </div>
             </div>

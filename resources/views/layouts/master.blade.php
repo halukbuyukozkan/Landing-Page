@@ -79,24 +79,10 @@
 						<nav class="primary-menu">
 
 							<ul class="menu-container">
+								<a href="{{ route('front.changelang',['lang' => 'tr']) }}">tr</a>
+								<a href="{{ route('front.changelang',['lang' => 'en']) }}">en</a>
 								<li class="menu-item">
-									<a class="menu-link" href="{{ route('front.index') }}"><div>Home</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item">
-											<a class="menu-link" href="index-blog.html"><div>Home - Blog</div></a>
-											<ul class="sub-menu-container">
-												<li class="menu-item">
-													<a class="menu-link" href="index-blog.html"><div>Blog - Layout 1</div></a>
-												</li>
-												<li class="menu-item">
-													<a class="menu-link" href="index-blog-2.html"><div>Blog - Layout 2</div></a>
-												</li>
-												<li class="menu-item">
-													<a class="menu-link" href="index-blog-3.html"><div>Blog - Layout 3</div></a>
-												</li>
-											</ul>
-										</li>
-									</ul>
+									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Home')}}</div></a>
 								</li>
 								<li class="menu-item">
 									<a class="menu-link" href="index.html"><div>{{ __('About') }}</div></a>
@@ -106,7 +92,7 @@
 									<ul class="sub-menu-container">
 										@foreach($parentcategories as $category)
 										<li class="menu-item">
-											<a class="menu-link" href="{{ route('front.category.show',$category) }}"><div>{{ $category->name }}</div></a>
+											<a class="menu-link" href="{{ route('front.category.show',$category) }}"><div>@if(App::isLocale('tr')){{ $category->nametr }}@else{{ $category->name }}@endif</div></a>
 										</li>
 										@endforeach
 									</ul>
