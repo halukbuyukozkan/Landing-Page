@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SliderUpdateRequest;
 
 class SliderController extends Controller
@@ -110,6 +111,11 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
+        if(File::exists(storage_path('app/public/sliders/'. $slider->image))){
+            File::delete(storage_path('app/public/sliders/'. $slider->image));
+            }else{
+            dd('File does not exists.');
+            }
         $slider->delete();
         return redirect()->route('admin.slider.index')->with('success', 'Slider deleted successfully.');
     }

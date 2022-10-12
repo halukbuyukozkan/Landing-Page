@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Example;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SliderUpdateRequest;
 
 class ExampleController extends Controller
@@ -110,6 +111,11 @@ class ExampleController extends Controller
      */
     public function destroy(Example $example)
     {
+        if(File::exists(storage_path('app/public/examples/'. $example->image))){
+            File::delete(storage_path('app/public/examples/'. $example->image));
+            }else{
+            dd('File does not exists.');
+            }
         $example->delete();
         return redirect()->route('admin.example.index')->with('success', 'Example deleted successfully.');
     }

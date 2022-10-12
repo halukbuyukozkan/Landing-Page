@@ -32,7 +32,7 @@ use App\Http\Controllers\LanguageController;
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::get('/about', [AboutController::class,'about'])->name('about');
-    Route::get('/{lang}', [LanguageController::class,'change'])->name('changelang');
+    Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('changelang');
     Route::resource('category',FrontCategoryController::class);
     Route::resource('category.subcategory',SubCategoryController::class);
     Route::resource('subcategory.product',FrontProductController::class);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
@@ -113,6 +114,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if(File::exists(storage_path('app/public/categories/'. $category->image))){
+            File::delete(storage_path('app/public/categories/'. $category->image));
+            }else{
+            dd('File does not exists.');
+            }
         $category->delete();
 
         return redirect()->route('admin.category.index')->with('success', __('Category deleted successfully'));
