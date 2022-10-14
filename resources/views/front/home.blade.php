@@ -18,8 +18,8 @@
 
 				<div class="container clearfix">
 					<div id="portfolio" class="portfolio row grid-container gutter-30" data-layout="fitRows">
-						@foreach ($products as $product)
-							<article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons">
+						@foreach ($frontproducts as $product)
+							<article class="portfolio-item col-md-3 col-sm-6 col-12 pf-media pf-icons">
 								<div class="grid-inner">
 									<div class="portfolio-image">
 										<a href="#">
@@ -34,8 +34,8 @@
 										</div>
 									</div>
 									<div class="portfolio-desc">
-										<h3><a class="text-white" href="#">{{ $product->title }}</a></h3>
-										<span>{{ $product->description }}</span>
+										<h3><a class="text-white" href="#">@if(App::isLocale('tr')){{ $product->titletr }}@else{{ $product->title }}@endif</a></h3>
+										<span>@if(App::isLocale('tr')){{ $product->descriptiontr }}@else{{ $product->description }}@endif</span>
 									</div>
 								</div>
 							</article>
@@ -43,10 +43,9 @@
 					</div>
 				</div>
 
+				@if($clients->count() > 0)
 				<div class="section topmargin-sm footer-stick">
-
 					<h4 class="text-uppercase text-center">What <span>Clients</span> say?</h4>
-
 					<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
 						<div class="flexslider">
 							<div class="slider-wrap">
@@ -66,8 +65,8 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
+				@endif
 			</div>
 		</section><!-- #content end -->
 

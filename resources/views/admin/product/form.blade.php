@@ -19,7 +19,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="title">{{ __('Title') }}</label>
+                            <label for="titletr">{{ __('Turkhis Name') }}</label>
+                            <input type="text" name="titletr" id="titletr" class="form-control"
+                                value="{{ $product->titletr }}">
+                        </div>
+                        @error('titletr')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="title">{{ __('English Name') }}</label>
                             <input type="text" name="title" id="title" class="form-control"
                                 value="{{ $product->title }}">
                         </div>
@@ -29,7 +39,17 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="description">{{ __('Description') }}</label>
+                            <label for="descriptiontr">{{ __('Turkhis Description') }}</label>
+                            <input type="text" name="descriptiontr" id="descriptiontr" class="form-control"
+                                value="{{ $product->descriptiontr }}">
+                        </div>
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="description">{{ __('English Description') }}</label>
                             <input type="text" name="description" id="description" class="form-control"
                                 value="{{ $product->description }}">
                         </div>

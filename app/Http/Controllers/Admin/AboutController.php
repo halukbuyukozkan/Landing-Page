@@ -1,17 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
-use App\Models\Client;
-use App\Models\Slider;
-use App\Models\Example;
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AboutRequest;
+use App\Models\About;
+use Illuminate\Http\Request;
 
-class FrontController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +16,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
-        $examples = Example::all();
-        $clients = Client::all();
-        $about = About::first();
-
-        $frontproducts = Product::where('order','!=',null)->get();
-        $frontproducts = $frontproducts->sortBy('order');
-
-        return view('front.home',compact('sliders','examples','frontproducts','clients','about'));
+        $abouts = About::paginate();
+        return view('admin.about.index',compact('abouts'));
     }
 
     /**
@@ -36,9 +25,10 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $about = new About($request->old());
+        return view('admin.about.form',compact('about'));
     }
 
     /**
@@ -47,18 +37,21 @@ class FrontController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AboutRequest $request)
     {
-        //
+        $data = $request->validated();
+        $about = About::create($data);
+
+        return redirect()->route('admin.about.index')->with('success', 'About created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(About $about)
     {
         //
     }
@@ -66,10 +59,10 @@ class FrontController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(About $about)
     {
         //
     }
@@ -78,10 +71,10 @@ class FrontController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, About $about)
     {
         //
     }
@@ -89,11 +82,13 @@ class FrontController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(About $about)
     {
-        //
+        $about->delete();
+
+        return redirect()->route('admin.about.index');
     }
 }

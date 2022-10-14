@@ -18,8 +18,11 @@
             </x-side-link>
         @endif
     </x-side-accordion>
-            <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
+        <x-side-link href="{{ route('admin.slider.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.slider.*')">
             {{ __('Sliders') }}
+        </x-side-link>
+        <x-side-link href="{{ route('admin.about.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.about.*')">
+            {{ __('About') }}
         </x-side-link>
         <x-side-link href="{{ route('admin.example.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.example.*')">
             {{ __('Examples') }}

@@ -53,7 +53,7 @@ class ClientController extends Controller
 
 
 
-        return redirect()->route('admin.client.index')->with('success', 'Product created successfully.');
+        return redirect()->route('admin.client.index')->with('success', 'Client created successfully.');
     }
 
     /**

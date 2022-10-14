@@ -85,7 +85,7 @@
 									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Home')}}</div></a>
 								</li>
 								<li class="menu-item">
-									<a class="menu-link" href="index.html"><div>{{ __('About') }}</div></a>
+									<a class="menu-link" href="{{ route('front.about') }}"><div>{{ __('About') }}</div></a>
 								</li>
 								<li class="menu-item">
 									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Products') }}</div></a>

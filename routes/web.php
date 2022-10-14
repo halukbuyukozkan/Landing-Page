@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FrontAboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\LanguageController;
 
 Route::name('front.')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
-    Route::get('/about', [AboutController::class,'about'])->name('about');
+    Route::get('/about', [FrontAboutController::class,'about'])->name('about');
     Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('changelang');
     Route::resource('category',FrontCategoryController::class);
     Route::resource('category.subcategory',SubCategoryController::class);
@@ -48,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('role', RoleController::class);
         Route::resource('permission', PermissionController::class);
         Route::resource('slider',SliderController::class);
+        Route::resource('about',AboutController::class);
         Route::resource('client', ClientController::class);
         Route::resource('example',ExampleController::class);
         Route::resource('category',CategoryController::class);
