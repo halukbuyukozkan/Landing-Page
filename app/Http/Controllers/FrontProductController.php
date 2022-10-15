@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Property;
@@ -62,7 +63,8 @@ class FrontProductController extends Controller
             return $value->type->value == 'usage';
         });
         
-        return view('front.product.show',compact('product','surfaces','dimensions','availables','usages'));
+        $contact = Contact::first();
+        return view('front.product.show',compact('product','surfaces','dimensions','availables','usages','contact'));
     }
 
     /**

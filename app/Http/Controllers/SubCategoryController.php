@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class SubCategoryController extends Controller
      */
     public function index(Category $category)
     {
-        return view('front.category.index',compact('category'));
+        $contact = Contact::first();
+
+        return view('front.category.index',compact('category','contact'));
     }
 
     /**
@@ -48,8 +51,8 @@ class SubCategoryController extends Controller
     public function show(Category $category,Category $subcategory)
     {
         $products = $subcategory->products;
-
-        return view('front.product.index',compact('products'));
+        $contact = Contact::first();
+        return view('front.product.index',compact('products','contact'));
     }
 
     /**
