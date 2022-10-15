@@ -66,8 +66,7 @@
 						<!-- Logo
 						============================================= -->
 						<div id="logo">
-							<a href="{{ route('front.index') }}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="{{asset('img/logo.jpg')}}" alt="Globexim"></a>
-							<a href="{{ route('front.index') }}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png">Globexim</a>
+							<a href="{{ route('front.index') }}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="{{asset('img/logo.png')}}" alt="Globexim"></a>
 						</div><!-- #logo end -->
 
 						<div id="primary-menu-trigger">
@@ -79,15 +78,13 @@
 						<nav class="primary-menu">
 
 							<ul class="menu-container">
-								<a href="{{ route('front.changelang',['lang' => 'tr']) }}">tr</a>
-								<a href="{{ route('front.changelang',['lang' => 'en']) }}">en</a>
-								<li class="menu-item">
+								<li class="menu-item mx-5">
 									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Home')}}</div></a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item mx-5">
 									<a class="menu-link" href="{{ route('front.about') }}"><div>{{ __('About') }}</div></a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item mx-5">
 									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Products') }}</div></a>
 									<ul class="sub-menu-container">
 										@foreach($parentcategories as $category)
@@ -97,8 +94,14 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item mx-5">
 									<a class="menu-link" href="index.html"><div>{{ __('Contact') }}</div></a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ route('front.changelang',['lang' => 'tr']) }}">TR</a>
+								</li>
+								<li class="menu-item mx-1">
+									<a href="{{ route('front.changelang',['lang' => 'en']) }}">EN</a>
 								</li>
 							</ul>
 
@@ -130,26 +133,25 @@
 				============================================= -->
 				<div class="footer-widgets-wrap">
 
-					<div class="row col-mb-50">
+					<div class="row">
 						<div class="col-lg-8">
 
-							<div class="row col-mb-50">
+							<div class="row">
 								<div class="col-md-4">
 
 									<div class="widget clearfix">
 
-										<div id="logo">
-											<a href="{{ route('front.index') }}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="{{asset('img/logo.jpg')}}" alt="Globexim"></a>
-											<a href="{{ route('front.index') }}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png">Globexim</a>
+										<div>
+											<img src="{{asset('img/logo2.png')}}" alt="Globexim">
 										</div>
 
-										<div class="mt-5" style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
+										<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
 											<address>
-												<strong>Headquarters:</strong><br>
+												<strong>{{__('Headquarters')}}:</strong><br>
 												Karaciğan Mahallesi Ali Ulvi Kurucu Caddesi
 												- Enn Tepe Mall Office B Blok No 117/905 Karatay/Konya<br>
 											</address>
-											<abbr title="Phone Number"><strong>Phone:</strong></abbr> (1) 8547 632521<br>
+											<abbr title="Phone Number"><strong>{{__('Phone')}}:</strong></abbr> (1) 8547 632521<br>
 											<abbr title="Fax"><strong>Fax:</strong></abbr> (1) 11 4752 1433<br>
 											<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
 										</div>
@@ -178,13 +180,14 @@
 									<div class="widget clearfix" style="margin-bottom: -20px;">
 
 										<div class="row">
+											<!-- 
 											<div class="col-6 col-md-12 col-lg-6 clearfix bottommargin-sm">
 												<a href="#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
 													<i class="icon-facebook"></i>
 													<i class="icon-facebook"></i>
 												</a>
-												<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
 											</div>
+											-->
 											<div class="col-6 col-md-12 col-lg-6 clearfix">
 												<a href="https://wa.me/+905343230447/" class="social-icon si-dark si-colored si-whatsapp mb-0" style="margin-right: 10px;">
 													<i class="icon-whatsapp"></i>
