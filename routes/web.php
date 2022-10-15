@@ -17,6 +17,8 @@ use App\Http\Controllers\FrontProductController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\FrontContactController;
 use App\Http\Controllers\LanguageController;
 
 /*
@@ -35,6 +37,7 @@ Route::name('front.')->group(function () {
     Route::get('/about', [FrontAboutController::class,'about'])->name('about');
     Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('changelang');
     Route::resource('category',FrontCategoryController::class);
+    Route::get('/contact', [FrontContactController::class,'contact'])->name('contact');
     Route::resource('category.subcategory',SubCategoryController::class);
     Route::resource('subcategory.product',FrontProductController::class);
 });
@@ -50,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('permission', PermissionController::class);
         Route::resource('slider',SliderController::class);
         Route::resource('about',AboutController::class);
+        Route::resource('contact',ContactController::class);
         Route::resource('client', ClientController::class);
         Route::resource('example',ExampleController::class);
         Route::resource('category',CategoryController::class);

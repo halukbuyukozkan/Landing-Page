@@ -1,18 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\About;
-use App\Models\Client;
-use App\Models\Slider;
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
-use App\Models\Example;
-use App\Models\Product;
-use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class FrontController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +15,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
-        $examples = Example::all();
-        $clients = Client::all();
-        $about = About::first();
-        $contact = Contact::first();
-
-        $frontproducts = Product::where('order','!=',null)->get();
-        $frontproducts = $frontproducts->sortBy('order');
-
-        return view('front.home',compact('sliders','examples','frontproducts','clients','about','contact'));
+        $contacts = Contact::paginate();
+        return view('admin.contact.index',compact('contacts'));
     }
 
     /**
@@ -38,9 +24,11 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $contact = new Contact($request->old());
+
+        return view('admin.contact.form',compact('contact'));
     }
 
     /**
@@ -49,18 +37,21 @@ class FrontController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        //
+        $contact = $request->validated();
+        Contact::create($contact);
+
+        return redirect()->route('admin.contact.index')->with('success', 'Contact created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
         //
     }
@@ -68,10 +59,10 @@ class FrontController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -80,10 +71,10 @@ class FrontController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -91,10 +82,10 @@ class FrontController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
         //
     }

@@ -85,7 +85,7 @@
 									<a class="menu-link" href="{{ route('front.about') }}"><div>{{ __('About') }}</div></a>
 								</li>
 								<li class="menu-item mx-5">
-									<a class="menu-link" href="{{ route('front.index') }}"><div>{{ __('Products') }}</div></a>
+									<a class="menu-link" href="#"><div>{{ __('Products') }}</div></a>
 									<ul class="sub-menu-container">
 										@foreach($parentcategories as $category)
 										<li class="menu-item">
@@ -95,7 +95,7 @@
 									</ul>
 								</li>
 								<li class="menu-item mx-5">
-									<a class="menu-link" href="index.html"><div>{{ __('Contact') }}</div></a>
+									<a class="menu-link" href="{{ route('front.contact') }}"><div>{{ __('Contact') }}</div></a>
 								</li>
 								<li class="menu-item">
 									<a href="{{ route('front.changelang',['lang' => 'tr']) }}">TR</a>
@@ -148,12 +148,10 @@
 										<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
 											<address>
 												<strong>{{__('Headquarters')}}:</strong><br>
-												Karaciğan Mahallesi Ali Ulvi Kurucu Caddesi
-												- Enn Tepe Mall Office B Blok No 117/905 Karatay/Konya<br>
+												{{ $contact->address }}<br>
 											</address>
-											<abbr title="Phone Number"><strong>{{__('Phone')}}:</strong></abbr> (1) 8547 632521<br>
-											<abbr title="Fax"><strong>Fax:</strong></abbr> (1) 11 4752 1433<br>
-											<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+											<abbr title="Phone Number"><strong>{{__('Phone')}}:</strong></abbr>{{ $contact->phone }}<br>
+											<abbr title="Email Address"><strong>Email:</strong></abbr> {{ $contact->email }}
 										</div>
 
 									</div>

@@ -24,6 +24,9 @@
         <x-side-link href="{{ route('admin.about.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.about.*')">
             {{ __('About') }}
         </x-side-link>
+        <x-side-link href="{{ route('admin.contact.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.contact.*')">
+            {{ __('Contact') }}
+        </x-side-link>
         <x-side-link href="{{ route('admin.example.index') }}" icon="fas fa-list" :active="request()->routeIs('admin.example.*')">
             {{ __('Examples') }}
         </x-side-link>
