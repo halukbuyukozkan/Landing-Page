@@ -22,7 +22,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>Home - Corporate Layout 2 | Canvas</title>
+	<title>Globexim</title>
 
 	<style>
 		#header.sticky-on-scrollup #header-wrap {

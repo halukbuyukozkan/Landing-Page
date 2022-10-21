@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
 
-            $table->text('description');
-            $table->text('descriptiontr');
+            $table->json('description');
+            $table->json('descriptiontr');
+            $table->text('description2');
+            $table->text('descriptiontr2');
 
             $table->timestamps();
         });

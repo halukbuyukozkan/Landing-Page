@@ -17,6 +17,7 @@ class AboutController extends Controller
     public function index()
     {
         $abouts = About::paginate();
+
         return view('admin.about.index',compact('abouts'));
     }
 
@@ -40,7 +41,13 @@ class AboutController extends Controller
     public function store(AboutRequest $request)
     {
         $data = $request->validated();
-        $about = About::create($data);
+
+        $about = About::create([
+            'description' => $data['description'],
+            'descriptiontr' => $data['descriptiontr'],
+            'description2' => $data['description2'],
+            'descriptiontr2' => $data['descriptiontr2'],
+        ]);
 
         return redirect()->route('admin.about.index')->with('success', 'About created successfully.');
     }

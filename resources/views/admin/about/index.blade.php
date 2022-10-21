@@ -27,11 +27,13 @@
                                     {{ $about->name }}
                                 </label>
                             </td>
+                            @foreach($about->description as $description)
                             <td>
                                 <label>
-                                    {{ $about->description }}
+                                    {{ $description }}
                                 </label>
                             </td>
+                            @endforeach
                             <td class="text-right col-3">
                                 <a href="{{ route('admin.about.edit', $about) }}"
                                     class="btn btn-sm btn-primary">

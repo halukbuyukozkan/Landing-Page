@@ -10,8 +10,9 @@ class FrontAboutController extends Controller
 {
     public function about()
     {
-        $about = About::first();
+        $abouts = About::all();
+
         $contact = Contact::first();
-        return view('front.about.about',compact('about','contact'));
+        return view('front.about.about',compact('abouts','contact'));
     }
 }

@@ -24,8 +24,10 @@ class AboutRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => 'required|string',
-            'descriptiontr' => 'required|string'
+            'description' => 'required',
+            'description2' => 'required',
+            'descriptiontr' => 'required',
+            'descriptiontr2' => 'required'
         ];
     }
 }

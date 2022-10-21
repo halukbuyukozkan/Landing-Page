@@ -26,7 +26,7 @@
                                     <a href="#"><i class="icon-phone3"></i></a>
                                 </div>
                                 <div class="fbox-content">
-                                    <h3>{{ __('Phone') }}<span class="subtitle">{{ $contact->phone }}</span></h3>
+                                    <h3>{{ __('Phone') }}<span class="subtitle">{{ $contact->phone }}</span><span class="subtitle">+90 549 604 6853</span></h3>
                                 </div>
                             </div>
                         </div>
