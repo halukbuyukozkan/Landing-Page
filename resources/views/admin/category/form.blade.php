@@ -46,7 +46,7 @@
                         <input id="image" type="file" class="form-control" name="image" value="{{ $category->image }}" autocomplete="image">
 
                         @if ($category->image)
-                        <img src="{{ asset('storage/categories/' . $category->image) }}" alt="{{ $category->title }}"
+                        <img src="{{ asset('images/categories/' . $category->image) }}" alt="{{ $category->title }}"
                             class="mt-3" style="max-height: 100px">
                         @endif
 

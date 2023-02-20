@@ -45,11 +45,10 @@ class CategoryController extends Controller
     {
         $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $destination = 'public/categories';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $validated['image'] = $imageName;
+            $destinationPath = 'images/categories/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $validated['image'] = $myimage;
         }
         
         $category = Category::create($validated);
@@ -90,18 +89,16 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        $data = $request->validated();
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
-            $destination = 'public/categories';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $data['image'] = $imageName;
+            $destinationPath = 'images/categories/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $validated['image'] = $myimage;
         }
 
-        $category->fill($data);
-        $category->save();
+        $category->update($validated);
 
         return redirect()->route('admin.category.index')->with('success', 'Category updated successfully.');
     }
@@ -114,10 +111,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(File::exists(storage_path('app/public/categories/'. $category->image))){
-            File::delete(storage_path('app/public/categories/'. $category->image));
-            }else{
-            dd('File does not exists.');
+        if(File::exists(public_path('images/categories/'. $category->image))){
+            File::delete(public_path('images/categories/'. $category->image));
             }
         $category->delete();
 

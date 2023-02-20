@@ -21,7 +21,7 @@
                                         <div class="grid-inner">
                                             <a href="{{ route('front.category.subcategory.show',['category' => $category,'subcategory' => $subcategory]) }}">
                                             <div class="portfolio-image" style="border-radius: 50%">
-                                                <img src="{{ asset('storage/categories/' . $subcategory->image) }}" alt="Open Imagination">
+                                                <img src="{{ asset('images/categories/' . $subcategory->image) }}" alt="Open Imagination">
                                                 <div class="bg-overlay">
                                                     <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
                                                 </div>
