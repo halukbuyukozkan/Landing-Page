@@ -14,7 +14,7 @@
 										<div class="flexslider">
 											<div class="slider-wrap">
 												@foreach($product->images as $image)
-												<div class="slide"><img src="{{ asset($image->url) }}" alt="Morning Dew"></div>
+												<div class="slide"><img src="{{ asset($image->url . $image->name) }}" alt="Morning Dew"></div>
 												@endforeach
 											</div>
 										</div>

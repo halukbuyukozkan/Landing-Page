@@ -55,10 +55,11 @@ class ProductController extends Controller
 
         foreach ($request->file('images') as $imagefile) {
             $image = new Image;
-            $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
-            $image->url = $path;
+            $destinationPath = 'images/products/';
+            $image->url = $destinationPath;
             $image->product_id = $product->id;
-            $image->name = $imagefile->hashName();
+            $image->name = $imagefile->getClientOriginalName();
+            $imagefile->move(public_path($destinationPath), $image->name);
             $image->save();
           }
 
@@ -125,11 +126,8 @@ class ProductController extends Controller
     {
         foreach($product->images as $image)
         {
-            
-            if(File::exists(public_path('images/resource/'. $image->name))){
-            File::delete(public_path('images/resource/'. $image->name));
-            }else{
-            dd('File does not exists.');
+            if(File::exists(public_path('images/products/'. $image->name))){
+            File::delete(public_path('images/products/'. $image->name));
             }
             $image->delete();
         }

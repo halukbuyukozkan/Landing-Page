@@ -23,7 +23,7 @@
                 <tbody>
                     @forelse ($products as $product)
                         <tr>
-                            <td><image src="{{ asset('storage/products/' .$product->image) }}" style="width: 100px"></td>
+                            <td><image src="{{ asset('images/products/' .$product->images->first()->name) }}" style="width: 100px"></td>
                             <td>
                                 <label>
                                     {{ $product->title }}
