@@ -49,13 +49,13 @@ class SliderController extends Controller
     {
         $slider = $request->validated();
         if ($request->hasFile('image')) {
-            $destination = 'public/sliders';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $slider['image'] = $imageName;
+            $destinationPath = 'images/sliders/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $slider['image'] = $myimage;
         }
         Slider::create($slider);
+
         return redirect()->route('admin.slider.index')->with('success', 'Slider created successfully.');
     }
 
@@ -92,11 +92,10 @@ class SliderController extends Controller
     {
         $slider->fill($request->validated());
         if ($request->hasFile('image')) {
-            $destination = 'public/sliders';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $slider['image'] = $imageName;
+            $destinationPath = 'images/sliders/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $slider['image'] = $myimage;
         }
         $slider->save();
 
@@ -111,10 +110,8 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        if(File::exists(storage_path('app/public/sliders/'. $slider->image))){
-            File::delete(storage_path('app/public/sliders/'. $slider->image));
-            }else{
-            dd('File does not exists.');
+        if(File::exists(public_path('images/sliders/'. $slider->image))){
+            File::delete(public_path('images/sliders/'. $slider->image));
             }
         $slider->delete();
         return redirect()->route('admin.slider.index')->with('success', 'Slider deleted successfully.');

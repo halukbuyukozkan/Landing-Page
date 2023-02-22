@@ -22,7 +22,7 @@
                 <tbody>
                     @forelse ($examples as $example)
                         <tr>
-                            <td><image src="{{ asset('storage/examples/' .$example->image) }}" style="width: 100px"></td>
+                            <td><image src="{{ asset('images/examples/' .$example->image) }}" style="width: 100px"></td>
                             <td>
                                 <label>
                                     {{ $example->title }}

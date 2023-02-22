@@ -49,11 +49,10 @@ class ExampleController extends Controller
     {
         $example = $request->validated();
         if ($request->hasFile('image')) {
-            $destination = 'public/examples';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $example['image'] = $imageName;
+            $destinationPath = 'images/examples/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $example['image'] = $myimage;
         }
         Example::create($example);
         return redirect()->route('admin.example.index')->with('success', 'Example created successfully.');
@@ -92,11 +91,10 @@ class ExampleController extends Controller
     {
         $example->fill($request->validated());
         if ($request->hasFile('image')) {
-            $destination = 'public/sliders';
-            $image = $request->file('image');
-            $imageName = Str::random(32) . '.' . $image->getClientOriginalExtension();
-            $path = $request->file('image')->storeAs($destination, $imageName);
-            $example['image'] = $imageName;
+            $destinationPath = 'images/examples/';
+            $myimage = $request->image->getClientOriginalName();
+            $request->image->move(public_path($destinationPath), $myimage);
+            $example['image'] = $myimage;
         }
         $example->save();
 
@@ -111,10 +109,8 @@ class ExampleController extends Controller
      */
     public function destroy(Example $example)
     {
-        if(File::exists(storage_path('app/public/examples/'. $example->image))){
-            File::delete(storage_path('app/public/examples/'. $example->image));
-            }else{
-            dd('File does not exists.');
+        if(File::exists(public_path('images/examples/'. $example->image))){
+            File::delete(public_path('images/examples/'. $example->image));
             }
         $example->delete();
         return redirect()->route('admin.example.index')->with('success', 'Example deleted successfully.');

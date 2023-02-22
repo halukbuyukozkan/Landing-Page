@@ -33,7 +33,7 @@
                         <input id="image" type="file" class="form-control" name="image" value="{{ $slider->image }}" autocomplete="image">
 
                         @if ($slider->image)
-                        <img src="{{ asset('storage/sliders/' . $slider->image) }}" alt="{{ $slider->title }}"
+                        <img src="{{ asset('images/sliders/' . $slider->image) }}" alt="{{ $slider->title }}"
                             class="mt-3" style="max-height: 100px">
                         @endif
 

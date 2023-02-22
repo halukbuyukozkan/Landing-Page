@@ -22,7 +22,7 @@
                 <tbody>
                     @forelse ($sliders as $slider)
                         <tr>
-                            <td><image src="{{ asset('storage/sliders/' .$slider->image) }}" style="width: 100px"></td>
+                            <td><image src="{{ asset('images/sliders/' .$slider->image) }}" style="width: 100px"></td>
                             <td>
                                 <label>
                                     {{ $slider->title }}

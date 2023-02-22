@@ -80,7 +80,7 @@
 								<div class="col-sm-6 col-lg-3 slider-item">
 									<div class="feature-box media-box">
 										<div class="fbox-media">
-											<img src="{{ asset('storage/examples/' . $example->image)}}" alt="Why choose Us?">
+											<img src="{{ asset('images/examples/' . $example->image)}}" alt="Why choose Us?">
 										</div>
 									</div>
 								</div>
