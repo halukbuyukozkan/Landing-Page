@@ -18,12 +18,12 @@
 
 				<div class="container clearfix">
 					<div id="portfolio" class="portfolio row grid-container gutter-30" data-layout="fitRows">
-						@foreach ($frontproducts as $product)
-							<article class="portfolio-item col-md-3 col-sm-6 col-12 pf-media pf-icons">
+						@foreach ($frontproducts->take(3) as $product)
+							<article class="portfolio-item col-md-4 col-sm-6 col-12 pf-media pf-icons">
 								<div class="grid-inner">
 									<div class="portfolio-image">
 										<a href="#">
-											<img src="{{ asset($product->images->first()->url) }}" alt="Open Imagination">
+											<img src="{{ asset('images/products/' . $product->images->first()->name) }}" alt="Open Imagination">
 										</a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content dark" data-hover-animate="fadeIn">
